@@ -1,0 +1,74 @@
+{% extends "demo/index.html" %}
+{% load django_listing %}
+{% load i18n %}
+
+{% block example %}
+    <h2><a href="{% url 'editable' %}">Editable listing</a> : On demand edition activation</h2>
+    <p>Have a look at <code>demo/templates/demo/editable.html</code> and
+        <code>EditableListing3View</code> in <code>demo/views.py</code> to see how examples are
+        coded</p>
+
+    <h3>Click on 'Edit' to activate the whole listing page edition</h3>
+    {% if employees_listing.editing %}
+        <form method="post">{% csrf_token %}
+            {% render_listing employees_listing has_paginator=False %}
+            <div class="text-center">
+                <a href="{% geturl_listing employees_listing without='editing' %}" class="btn btn-primary" role="button">Cancel</a>&nbsp;&nbsp;
+                <button type="submit" name="action"
+                        value="update" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    {% else %}
+        {% render_listing employees_listing %}
+        <div class="text-center">
+            <a href="{% geturl_listing employees_listing editing='true' %}" class="btn btn-primary" role="button">Edit</a>
+        </div>
+    {% endif %}
+    <br><br><br>
+
+    <h3>User can dynamically restrict edition on some columns</h3>
+    <p>Note:<br>
+        <code>editing</code> and <code>editing_columns</code> can be set at user level
+        (in querystring).<br>
+        <code>editable</code> and <code>editable_columns</code> can only be set by the developper.<br>
+    To be modifiable, a column must be 'editable' and 'editing', the listing must be also 'editable' and 'editing'
+    (There are 4 conditions to be able to edit a column).<br>
+    If not specified, <code>editing=True</code> if <code>editable=True</code>.
+
+    </p>
+    {% if companies_listing.editing %}
+        <form method="post">{% csrf_token %}
+            {% render_listing companies_listing has_paginator=False %}
+            <div class="text-center">
+                <a href="{% geturl_listing companies_listing without='editing' %}" class="btn btn-primary" role="button">Cancel</a>&nbsp;&nbsp;
+                <button type="submit" name="action"
+                        value="update" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    {% else %}
+        {% render_listing companies_listing %}
+        <div class="text-center">
+            <a href="{% geturl_listing companies_listing editing='true' editing_columns='address,age' %}" class="btn btn-primary" role="button">Edit only addresses &amp; ages</a>
+        </div>
+    {% endif %}
+
+    {% with posted_listing.get_formset as formset %}
+        {% if formset.is_valid %}
+            <br><br>
+            <h3>Modified listing ({{ posted_listing.id }}) : </h3>
+            {% render_listing formset.cleaned_data exclude_columns='id' %}
+            <br><br>
+            <h3>formset.cleaned_data : </h3>
+            <pre>
+            {% for row in formset.cleaned_data %}{{ row }}
+            {% endfor %}
+            </pre>
+
+            <br><br>
+            <h3>POST data : </h3>
+            <pre>
+{{ post_data }}
+            </pre>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Django-listing Tests / Examples</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    {% include "django_listing/header.html" %}
+    <link rel="stylesheet" href="{% static "demo/css/demo.css" %}">
+    <link rel="stylesheet" href="{% static "demo/css/prism.css" %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/>
+</head>
+<body>
+<a href="https://github.com/elapouya/django-listing"><img style="position: absolute; top: 0; left: 0; border: 0;"
+                                                          src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"
+                                                          alt="Fork me on GitHub"></a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1><a href="{% url "index" %}">
+                <img src="{% static "demo/images/django-listing-shadow.png" %}">
+            </a></h1>
+        </div>
+    </div>
+    {% if messages %}
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-12 text-left">
+            {% block example %}
+                <div class="col-md-6 offset-md-3 text-center">
+                    <h3>Just some examples...</h3>
+                </div>
+                <div class="list-group col-md-6 offset-md-3 django-listing-menu">
+                    <a class="list-group-item list-group-item-action" href="{% url "readme_first" %}"><b>Read me
+                        first</b></a>
+                    <a class="list-group-item list-group-item-action" href="{% url "basic_usage" %}">Basic usage</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "many_ways" %}">There are many
+                        ways...</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "advanced_usage" %}">Advanced
+                        usage</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "pagination" %}">Pagination</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "div_rows" %}">Div rows</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "columns" %}">Columns</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "aggregation" %}">Aggregation</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "variations" %}">Variations</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "translation" %}">Translation</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "toolbar" %}">Toolbar</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "ajax" %}">Ajax</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "filters" %}">Filters</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "editable" %}">Editable listing</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "selectable" %}">Selectable
+                        listing</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "insertable" %}">Insertable
+                        listing</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "upload" %}">Upload
+                        listing</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "speed_test" %}">Speed test</a>
+                    <a class="list-group-item list-group-item-action" href="{% url "fonticons" %}">Built-in font
+                        icons</a>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<br><br>
+<p class="text-center">
+    <a href="https://github.com/elapouya/django-listing"><img src="{% static "demo/images/github-logo.png" %}">
+        Django-listing on GitHub</a><br><br>
+    <span class="text-black-50">© 2020 - An Eric Lapouyade project</span>
+</p>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="{% static "demo/js/prism.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+{% include "django_listing/footer.html" %}
+{% block endjavascript %}{% endblock %}
+
+</body>
+</html>
