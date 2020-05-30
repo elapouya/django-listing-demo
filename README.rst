@@ -1,5 +1,17 @@
-To run the demo
-===============
+To run the demo with docker
+===========================
+
+::
+
+    docker run elapouya/django-listing-demo
+
+Open your browser at this url : http://localhost:8123
+
+
+To run the demo as a developper
+===============================
+
+after cloning elapouya/django-listing-demo on github :
 
 Install pipenv
 --------------

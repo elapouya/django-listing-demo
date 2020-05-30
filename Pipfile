@@ -3,17 +3,14 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
-[dev-packages]
-django-tables2 = "*"
-
 [packages]
-sphinxcontrib-napoleon = "*"
-ipython = "*"
-gunicorn = "*"
+django = "*"
 django-extensions = "*"
 django-robohash-svg = "*"
-django-listing = {path = "..",editable = true}
+django-listing = "*"
 django-tables2 = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6"
