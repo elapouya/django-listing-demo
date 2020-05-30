@@ -3,7 +3,7 @@ To run the demo with docker
 
 ::
 
-    docker run elapouya/django-listing-demo
+    docker run -p 8123:8123 elapouya/django-listing-demo
 
 Open your browser at this url : http://localhost:8123
 
