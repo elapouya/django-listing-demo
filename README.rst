@@ -11,7 +11,12 @@ Open your browser at this url : http://localhost:8123
 To run the demo as a developper
 ===============================
 
-after cloning elapouya/django-listing-demo on github :
+Clone the demo code
+-------------------
+
+::
+
+    git clone https://github.com/elapouya/django-listing-demo.git
 
 Install pipenv
 --------------
