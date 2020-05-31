@@ -1,3 +1,5 @@
+This is a demo for `django-listing <https://github.com/elapouya/django-listing>`_  Django App
+
 To run the demo with docker
 ===========================
 
