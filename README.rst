@@ -7,6 +7,13 @@ To run the demo with docker
 
 Open your browser at this url : http://localhost:8123
 
+If you do not have docker yet, to install it on Linux, just use this command::
+
+    curl -sSL https://get.docker.com/ | sh
+
+Otherwise, you can upload from here : https://docs.docker.com/get-docker/
+
+
 
 To run the demo as a developper
 ===============================
