@@ -1,3 +1,5 @@
+# to build the docker file :
+# docker build -t yourdockerlogin/django-listing-demo .
 FROM python:3.6-alpine
 ENV PYTHONUNBUFFERED 1
 

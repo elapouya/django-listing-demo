@@ -61,9 +61,20 @@ Compile translation messages
     ./manage.py compilemessages
 
 
+Collect static files
+--------------------
+
+::
+
+    ./manage.py collectstatic --noinput
+
+Note : static files are served with whitenoise django app
+
 Run the demo
 ------------
 
 ::
 
     ./manage.py runserver
+
+Note : by default ``settings.DEBUG = False`` to be able to make some speed tests
