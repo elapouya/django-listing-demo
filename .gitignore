@@ -127,4 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-#/demo/collected_static/
+/demo/collected_static/
