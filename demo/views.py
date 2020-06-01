@@ -298,21 +298,19 @@ class EditableListing2View(ListingView):
                         per_page=5,
                         save_to_database=True )
 
-    # To avoid having the database to be written for the online demo,
-    # listing_save_rows_to_database() method has been redefined :
-    def listing_save_rows_to_database(self, listing, formset):
-        messages.add_message(self.request, messages.INFO,
-            ugettext('You asked to modify {} rows of listing "{}" in the '
-                     'database... But it will not be the case because it is an '
-                     'online demo ;)')
-            .format(len(formset.cleaned_data), self.posted_listing.id))
-        # No database update here
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.POST:
             context['post_data'] = pp.pformat(self.request.POST)
         return context
+
+    def manage_listing_companies_listing_row_form_clean(self, form):
+        if form.cleaned_data.get('name') == 'Twiyo':
+            raise ValidationError(ugettext(
+                'Just to test the method '
+                '<tt>manage_listing_companies_listing_row_form_clean()</tt> '
+                ': do not use "Twiyo" in column "Name"'))
+        return form.cleaned_data
 
 
 class EditableListing3View(EditableListing2View):
@@ -501,7 +499,7 @@ class InsertableListingView(ListingView):
 
     def manage_listing_insert_form_clean_age(self, form):
         age = form.cleaned_data.get('age')
-        if not age or age < 0 or age > 130:
+        if age is None or age < 0 or age > 130:
             raise ValidationError(_('Age must be between 0 and 130.'))
         return age
 
