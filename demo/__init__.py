@@ -1,4 +1,4 @@
-__version__='0.0.1'
+__version__='0.0.3'
 __author__ = "Eric Lapouyade"
 __copyright__ = "Copyright 2020, The Django listing demo Project"
 __credits__ = ["Eric Lapouyade"]

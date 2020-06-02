@@ -4,9 +4,10 @@ FROM python:3.6-alpine
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
-COPY ./ ./
+COPY Pipfile* ./
 RUN pip install pipenv
 RUN pipenv sync
+COPY ./ ./
 RUN pipenv run ./manage.py collectstatic --noinput
 
 EXPOSE 8123
