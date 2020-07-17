@@ -78,6 +78,8 @@
     <div class="collapse" id="basic2">
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
+    {% load django_listing %}
+
     {% render_listing employees_as_model per_page=5 exclude_columns="id,interests,rank" %}
     </code></pre>
     </div>
@@ -98,6 +100,8 @@
     <div class="collapse" id="basic3">
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
+    {% load django_listing %}
+
     {% render_listing employees_as_model per_page=5 select_columns="age,first_name,last_name,address" %}
     </code></pre>
     </div>
@@ -120,6 +124,8 @@
     <div class="collapse" id="basic3-1">
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
+    {% load django_listing %}
+
     {% render_listing employees_as_model per_page=5 select_columns="age,first_name,last_name,address" link_object_columns="first_name,last_name" %}
     </code></pre>
     </div>
@@ -240,6 +246,8 @@
     <div class="collapse" id="basic7">
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
+    {% load django_listing %}
+
     {% render_listing employees_as_list_of_lists per_page=5 has_header=False %}
     </code></pre>
     </div>
