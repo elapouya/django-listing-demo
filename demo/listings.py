@@ -432,3 +432,13 @@ class InsertableListing(Listing):
     columns_label_suffix = ''
     save_to_database = True
 
+
+class UploadListing(Listing):
+    toolbar = Toolbar(
+        PerPageSelectToolbarItem(choices='8,16,32,64,-1:All'),
+    )
+    toolbar_placement = 'both'
+    per_page = 8
+    paginator_has_first_last = True
+
+

@@ -9,6 +9,11 @@ from django.db.models import Max
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from django_better_image.fields import BetterImageField, \
+    BetterImageOriginalField
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 
 class Company(models.Model):
     name = models.CharField(max_length=60, verbose_name=_('Name'))
@@ -83,3 +88,47 @@ class BooleanModel(models.Model):
     )
     my_bool = models.BooleanField()
     my_yes_no = models.CharField(max_length=2, choices=YES_NO_CHOICES, default='n')
+
+
+class ProductImage(models.Model):
+    created = models.DateTimeField(
+        auto_now_add=True,
+        blank=True, null=True,
+    )
+    title = models.CharField(
+        max_length=80,
+        blank=True, null=True,
+    )
+    description = models.TextField()
+    image = BetterImageField(
+        upload_to='product_images/%Y/%m/%d/',
+        keep_original_in='image_original',
+        thumb_name='image_form_thumb',
+        thumb_aspect_ratio=1,
+        buttons_placement='right',
+        use_dropzone=False,
+        crop_file_format='PNG',
+        blank=True, null=True)
+    image_original = BetterImageOriginalField(
+        upload_to='product_images/%Y/%m/%d/',
+        blank=True, null=True)
+    image_form_thumb = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(150, 150)],
+        format='PNG',
+        options={'quality': 90})
+    image_listing_thumb = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(75, 75)],
+        format='PNG',
+        options={'quality': 90})
+    image_mosaic_small = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(200, 200)],
+        format='PNG',
+        options={'quality': 90})
+    image_mosaic_big = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(400, 400)],
+        format='PNG',
+        options={'quality': 90})
