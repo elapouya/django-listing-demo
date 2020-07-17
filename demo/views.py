@@ -243,8 +243,8 @@ class ToolbarListingView(ListingView):
 
 class UploadListingView(ListingView):
     template_name = 'demo/upload.html'
-    listing_class = InsertableListing
-    listing_data = Employee
+    listing_class = UploadListing
+    listing_data = ProductImage
 
 
 class FiltersListingView(ListingView):

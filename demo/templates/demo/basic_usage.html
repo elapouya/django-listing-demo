@@ -79,7 +79,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_model per_page=5 exclude_columns="id,interests,rank" %}
     </code></pre>
     </div>
@@ -101,7 +101,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_model per_page=5 select_columns="age,first_name,last_name,address" %}
     </code></pre>
     </div>
@@ -125,7 +125,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_model per_page=5 select_columns="age,first_name,last_name,address" link_object_columns="first_name,last_name" %}
     </code></pre>
     </div>
@@ -157,7 +157,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_query_set per_page=5 exclude_columns="id,interests,rank" %}
     </code></pre>
     </div>
@@ -190,7 +190,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_list_of_dicts per_page=5 exclude_columns="interests,rank" %}
     </code></pre>
     </div>
@@ -225,7 +225,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_list_of_lists per_page=5 %}
     </code></pre>
     </div>
@@ -247,7 +247,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_list_of_lists per_page=5 has_header=False %}
     </code></pre>
     </div>
@@ -281,7 +281,7 @@
     in the template 'demo/basic_usage.html' :
     <pre><code class="language-django">
     {% load django_listing %}
-
+    ...
     {% render_listing employees_as_simple_list_of_strings per_page=5 columns_headers="Employees name" %}
     </code></pre>
     </div>

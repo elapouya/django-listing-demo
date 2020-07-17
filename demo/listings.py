@@ -440,5 +440,6 @@ class UploadListing(Listing):
     toolbar_placement = 'both'
     per_page = 8
     paginator_has_first_last = True
+    record_label = 'product image'
 
 
