@@ -441,5 +441,6 @@ class UploadListing(Listing):
     per_page = 8
     paginator_has_first_last = True
     record_label = 'product image'
+    has_upload = True
 
 

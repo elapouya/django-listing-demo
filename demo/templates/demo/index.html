@@ -1,4 +1,6 @@
 {% load static %}
+{% block django-listing-init %}
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +12,7 @@
     <link rel="stylesheet" href="{% static "demo/css/demo.css" %}">
     <link rel="stylesheet" href="{% static "demo/css/prism.css" %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/>
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
 <a href="https://github.com/elapouya/django-listing"><img style="position: absolute; top: 0; left: 0; border: 0;"
@@ -85,7 +86,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="{% static "demo/js/prism.js" %}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 {% include "django_listing/footer.html" %}
 {% block endjavascript %}{% endblock %}
 

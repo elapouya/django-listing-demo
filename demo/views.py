@@ -247,12 +247,20 @@ class UploadListingView(ListingView):
     listing_data = ProductImage
 
 
-class FiltersListingView(ListingView):
+class FiltersListingIndexView(TemplateView):
     template_name = 'demo/filters.html'
-    context_classes = (Employee,)
 
-    def get_listing_instance_listing2(self):
+
+class FiltersListing1View(ListingView):
+    template_name = 'demo/filters1.html'
+
+    def get_listing_instance(self):
         return FilterListing(Employee)
+
+
+class FiltersListing2View(ListingView):
+    template_name = 'demo/filters2.html'
+    context_classes = (Employee,)
 
 
 class EditableListingIndexView(TemplateView):
