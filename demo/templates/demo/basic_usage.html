@@ -44,17 +44,19 @@
     &lt;head&gt;
     ...
     &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css&quot;/&gt;
-    {% include &quot;django_listing/header.html&quot; %}
+
+    {% render_listing_header %}
     ...
     &lt;/head&gt;
+    &lt;body&gt;
     ...
     {% render_listing employees_as_model per_page=5 %}
     ...
     &lt;script src=&quot;http://code.jquery.com/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js&quot;&gt;&lt;/script&gt;
-    {% include &quot;django_listing/footer.html&quot; %}
+
+    {% render_listing_footer %}
     &lt;/body&gt;
     &lt;/html&gt;
     </code></pre>

@@ -1,6 +1,5 @@
 {% load static %}
-{% block django-listing-init %}
-{% endblock %}
+{% load django_listing %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Django-listing Tests / Examples</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
-    {% include "django_listing/header.html" %}
+    {% render_listing_header %}
     <link rel="stylesheet" href="{% static "demo/css/demo.css" %}">
     <link rel="stylesheet" href="{% static "demo/css/prism.css" %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
@@ -86,7 +85,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="{% static "demo/js/prism.js" %}"></script>
-{% include "django_listing/footer.html" %}
+{% render_listing_footer %}
 {% block endjavascript %}{% endblock %}
 
 </body>

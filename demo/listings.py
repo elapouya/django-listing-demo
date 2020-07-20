@@ -431,6 +431,7 @@ class InsertableListing(Listing):
     columns_no_choice_msg = 'Please choose...'
     columns_label_suffix = ''
     save_to_database = True
+    exclude_columns = "interests"
 
 
 class UploadListing(Listing):
