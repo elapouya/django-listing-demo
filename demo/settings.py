@@ -160,3 +160,7 @@ MEDIA_URL = '/media/'
 MEDIA_UPLOAD_DIR = 'uploads'
 MEDIA_UPLOAD_URL = MEDIA_URL + MEDIA_UPLOAD_DIR
 FULL_UPLOAD_DIR = os.path.join(BASE_DIR,MEDIA_ROOT,MEDIA_UPLOAD_DIR)
+
+DJANGO_LISTING = {
+    # The default values are in django_listing.app_settings.AppSettings
+}
