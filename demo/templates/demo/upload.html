@@ -7,8 +7,10 @@
     <p>Do not forget to put in your template the .css and .js from Dropzone</p>
     <p>Have a look at <code>demo/templates/demo/upload.html</code>, <code>UploadListingView</code> in
         <code>demo/views.py</code> and <code>UploadListing</code> in <code>demo/listings.py</code>
-        to see how examples are coded</p>
+        to see how examples are coded coucou</p>
 
+    <form  method="post" enctype="multipart/form-data">{% csrf_token %}
     {% render_listing %}
+    </form>
 
 {% endblock %}
