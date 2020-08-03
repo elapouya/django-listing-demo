@@ -8,19 +8,11 @@
         <code>EditableListing2View</code> in <code>demo/views.py</code> to see how examples are
         coded</p>
 
-    <form method="post">{% csrf_token %}
-        {% render_listing employees_listing %}
-        <div class="text-center">
-            <button type="submit" name="action" value="update" class="btn btn-primary">Update</button>
-        </div>
-    </form>
+    {% render_listing employees_listing %}
+
     <br><br><br>
-    <form method="post">{% csrf_token %}
-        {% render_listing companies_listing %}
-        <div class="text-center">
-            <button type="submit" name="action" value="update" class="btn btn-primary">Update</button>
-        </div>
-    </form>
+
+    {% render_listing companies_listing action_button_update_label="Save" %}
 
     {% with posted_listing.get_formset as formset %}
         {% if formset.is_valid %}

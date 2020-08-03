@@ -8,13 +8,7 @@
         <code>EditableListing1View</code> in <code>demo/views.py</code>
         to see how examples are coded</p>
 
-    <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        {% render_listing %}
-        <div class="text-center">
-            <button type="submit" name="action"
-                    value="update" class="btn btn-primary">Update</button>
-        </div>
-    </form>
+    {% render_listing %}
 
     {% with posted_listing.get_formset as formset %}
         {% if formset.is_valid %}
