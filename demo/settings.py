@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 from django.utils.translation import ugettext_lazy as _
+from django.utils.safestring import mark_safe
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -165,6 +166,9 @@ MEDIA_UPLOAD_DIR = 'uploads'
 MEDIA_UPLOAD_URL = MEDIA_URL + MEDIA_UPLOAD_DIR
 FULL_UPLOAD_DIR = os.path.join(BASE_DIR,MEDIA_ROOT,MEDIA_UPLOAD_DIR)
 
-DJANGO_LISTING = {
-    # The default values are in django_listing.app_settings.AppSettings
-}
+DJANGO_LISTING = dict(
+    DROPZONE_PARAMS=dict(
+        nestor=mark_safe('function() {}'),
+        machin=5
+    )
+)
