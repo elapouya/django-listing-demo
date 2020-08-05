@@ -328,12 +328,17 @@ class EditableListing3View(EditableListing2View):
     def get_listing_instance_employees_listing(self):
         listing = super().get_listing_instance_employees_listing()
         listing.editing = False
+        listing.edit_on_demand = True
         return listing
 
 
     def get_listing_instance_companies_listing(self):
         listing = super().get_listing_instance_employees_listing()
         listing.editing = False
+        listing.edit_on_demand = True
+        listing.editing_columns = 'address,age'
+        listing.action_button_edit_label = 'Edit only addresses & ages'
+        listing.action_button_update_label = 'Save'
         return listing
 
 
