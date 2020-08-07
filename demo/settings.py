@@ -168,7 +168,5 @@ FULL_UPLOAD_DIR = os.path.join(BASE_DIR,MEDIA_ROOT,MEDIA_UPLOAD_DIR)
 
 DJANGO_LISTING = dict(
     DROPZONE_PARAMS=dict(
-        nestor=mark_safe('function() {}'),
-        machin=5
     )
 )
