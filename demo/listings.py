@@ -383,6 +383,22 @@ class ToolbarListing(ListingVariations):
     exclude_columns = 'interests'
 
 
+class ToolbarUpdateListing(Listing):
+    toolbar = Toolbar(
+        ExportSelectToolbarItem(),
+        SortSelectToolbarItem(),
+        PerPageSelectToolbarItem(choices='8,16,32,64,-1:All'),
+        UpdateToolbarItem(),
+    )
+    toolbar_placement = 'both'
+    per_page = 8
+    paginator_has_first_last = True
+    exclude_columns = 'id,company,interests'
+    editable = True
+    editable_columns = 'all'
+    gender__input_type = 'radio'
+
+
 class NoToolbarListing(ListingVariations):
     variations_classes = (
         ToolbarSimpleListing,

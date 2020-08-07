@@ -4,17 +4,17 @@
 
 {% block example %}
     <h2><a href="{% url 'editable' %}">Editable listing</a> : On demand edition activation</h2>
-    <p>Have a look at <code>demo/templates/demo/editable.html</code> and
+    <p>Have a look at <code>demo/templates/demo/editable3.html</code> and
         <code>EditableListing3View</code> in <code>demo/views.py</code> to see how examples are
         coded</p>
 
     <h3>Click on 'Edit' to activate the whole listing page edition</h3>
 
-    {% render_listing employees_listing %}
+    {% render_listing employees_listing anchor_hash="body-top" %}
 
     <br><br><br>
 
-    <h3>User can dynamically restrict edition on some columns</h3>
+    <h3 id="example-2">User can dynamically restrict edition on some columns</h3>
     <p>Note:<br>
         <code>editing</code> and <code>editing_columns</code> can be set at user level
         (in querystring).<br>
@@ -25,7 +25,7 @@
 
     </p>
 
-    {% render_listing companies_listing %}
+    {% render_listing companies_listing anchor_hash="example-2" %}
 
     {% with posted_listing.get_formset as formset %}
         {% if formset.is_valid %}

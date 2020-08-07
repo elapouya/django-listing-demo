@@ -343,6 +343,22 @@ class EditableListing3View(EditableListing2View):
         return listing
 
 
+class EditableListing4View(ToolbarListingView):
+    template_name = 'demo/editable4.html'
+    update_success_redirect_url = LISTING_REDIRECT_NO_EDIT
+    save_to_database = True
+
+    def get_listing_instance_update_listing(self):
+        return ToolbarUpdateListing(
+            Employee,
+            exclude_columns='id,company,interests',
+            editable=True,
+            editable_columns='all',
+            per_page=5,
+            gender__input_type='radio',
+            save_to_database=True )
+
+
 class SelectableListingIndexView(ListingView):
     template_name = 'demo/selectable.html'
 

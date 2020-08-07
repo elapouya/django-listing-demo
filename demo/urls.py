@@ -68,6 +68,8 @@ urlpatterns = [
          name='editable2'),
     path('editable/3/', EditableListing3View.as_view(),
          name='editable3'),
+    path('editable/4/', EditableListing4View.as_view(),
+         name='editable4'),
     path('selectable/', SelectableListingIndexView.as_view(),
          name='selectable'),
     path('selectable/1/', SelectableListing1View.as_view(),
