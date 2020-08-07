@@ -5,6 +5,7 @@
 #
 
 from django.utils.encoding import force_str
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_listing import *
 from django.core.exceptions import ValidationError
@@ -238,10 +239,10 @@ class WidgetsColumnsListing(Listing):
             'style':'width:120px'}),
         Column('custom1', # will call self.render_custom1() automatically if it exists
                sortable=False,
-               header='Custom<br>column 1'),
+               header=mark_safe('Custom<br>column 1')),
         Column('custom2',
                sortable=False,
-               header='Custom<br>column 2',
+               header=mark_safe('Custom<br>column 2'),
                # custom cell value (lambda function) :
                cell_value=lambda col,rec: rec.format_str('{first_name} {last_name}'))
     )

@@ -196,7 +196,7 @@ class AjaxListingView(ListingView):
                        toolbar='sortdropdown,perpagedropdown')
 
 
-    def get_listing_instance_listing3(self):
+    def get_listing_instance_listing_with_toolbars_and_variations(self):
         return ToolbarListing(Employee, accept_ajax=True)
 
 
@@ -336,6 +336,7 @@ class EditableListing3View(EditableListing2View):
         listing = super().get_listing_instance_employees_listing()
         listing.editing = False
         listing.edit_on_demand = True
+        listing.edit_on_demand_options = { 'has_paginator':False }
         listing.editing_columns = 'address,age'
         listing.action_button_edit_label = 'Edit only addresses & ages'
         listing.action_button_update_label = 'Save'
