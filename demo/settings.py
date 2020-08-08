@@ -159,8 +159,7 @@ TIME_FORMAT = 'H:i'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 STATIC_ROOT = Path.home() / 'collected_static' / 'django_listing_demo'
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = Path.home() / 'media_root' / 'django_listing_demo'
 MEDIA_URL = '/media/'
 MEDIA_UPLOAD_DIR = 'uploads'
 MEDIA_UPLOAD_URL = MEDIA_URL + MEDIA_UPLOAD_DIR

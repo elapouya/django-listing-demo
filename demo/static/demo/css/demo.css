@@ -32,6 +32,22 @@ div.django-listing-container div.row-container.thumbnail:hover {
     background-color: #dddddd;
 }
 
+div.django-listing-container div.row-container.upload-thumbnail {
+    display: inline-block;
+    width:220px;
+    height:220px;
+    vertical-align: top;
+    padding: 10px 10px;
+}
+
+div.django-listing-container div.thumbnail-container {
+    padding: 0;
+}
+
+div.django-listing-container div.row-container.upload-thumbnail:hover {
+    background-color: #29a745;
+}
+
 div.django-listing-container div.row-container.big-thumbnail {
     display: inline-block;
     width:360px;

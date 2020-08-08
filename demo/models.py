@@ -110,7 +110,7 @@ class ProductImage(models.Model):
         thumb_aspect_ratio=1,
         buttons_placement='right',
         use_dropzone=False,
-        crop_file_format='JPG',
+        crop_file_format='JPEG',
         blank=True, null=True)
     image_original = BetterImageOriginalField(
         upload_to='product_images/%Y/%m/%d/',
@@ -118,20 +118,20 @@ class ProductImage(models.Model):
     image_form_thumb = ImageSpecField(
         source='image',
         processors=[ResizeToFill(150, 150)],
-        format='JPG',
+        format='JPEG',
         options={'quality': 50})
     image_listing_thumb = ImageSpecField(
         source='image',
         processors=[ResizeToFill(75, 75)],
-        format='JPG',
+        format='JPEG',
         options={'quality': 50})
     image_mosaic_small = ImageSpecField(
         source='image',
         processors=[ResizeToFill(200, 200)],
-        format='JPG',
+        format='JPEG',
         options={'quality': 40})
     image_mosaic_big = ImageSpecField(
         source='image',
         processors=[ResizeToFill(400, 400)],
-        format='JPG',
+        format='JPEG',
         options={'quality': 30})

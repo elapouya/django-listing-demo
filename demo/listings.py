@@ -451,14 +451,21 @@ class InsertableListing(Listing):
     exclude_columns = "interests"
 
 
-class UploadListing(Listing):
+class UploadListing(DivListing):
     toolbar = Toolbar(
         PerPageSelectToolbarItem(choices='8,16,32,64,-1:All'),
     )
     toolbar_placement = 'both'
+    has_upload = True
     per_page = 8
     paginator_has_first_last = True
     record_label = 'product image'
-    has_upload = True
+    div_template_name = 'demo/upload_thumbnails.html'
+    attrs = {'class':''}
+    # will add the 'thumbnail' class to the container
+    # means that one have to set 'div.row-container.thumbnail'
+    # in .css to modify the look
+    theme_div_row_container_class = 'upload-thumbnail'
+
 
 
