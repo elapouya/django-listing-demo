@@ -9,10 +9,9 @@ from django.db.models import Max
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
-from django_better_image.fields import BetterImageField, \
-    BetterImageOriginalField
+from django_better_image.fields import BetterImageOriginalField, BetterProcessedImageField
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToFill, ResizeToFit
 
 
 class Company(models.Model):
@@ -103,7 +102,7 @@ class ProductImage(models.Model):
 
     # Use django-better-image to have nice image editing
     # and use django-imagekit to have multiple image sizes
-    image = BetterImageField(
+    image = BetterProcessedImageField(
         upload_to='product_images/%Y/%m/%d/',
         keep_original_in='image_original',
         thumb_name='image_form_thumb',
@@ -111,6 +110,8 @@ class ProductImage(models.Model):
         buttons_placement='right',
         use_dropzone=False,
         crop_file_format='JPEG',
+        format='JPEG',
+        options={'quality': 50},
         blank=True, null=True)
     image_original = BetterImageOriginalField(
         upload_to='product_images/%Y/%m/%d/',

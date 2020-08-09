@@ -166,6 +166,7 @@ MEDIA_UPLOAD_URL = MEDIA_URL + MEDIA_UPLOAD_DIR
 FULL_UPLOAD_DIR = os.path.join(BASE_DIR,MEDIA_ROOT,MEDIA_UPLOAD_DIR)
 
 DJANGO_LISTING = dict(
-    DROPZONE_PARAMS=dict(
+    DROPZONE_PARAMS = dict(
+        acceptedFiles='image/jpeg',
     )
 )

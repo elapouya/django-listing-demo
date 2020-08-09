@@ -1,5 +1,7 @@
 {% load i18n %}
 {% load django_listing %}
 <div class="thumbnail-container">
-    <img width="200" height="200" src="{{ rec.image_mosaic_small.url}}">
+    <a href="{{ rec.image.url}}" target="_blank">
+        <img width="200" height="200" src="{{ rec.image_mosaic_small.url}}">
+    </a>
 </div>
