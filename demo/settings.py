@@ -29,7 +29,8 @@ SECRET_KEY = 'sqwninq3@+bhp2hrf6o+oi00#z2ams&x19y2__ryet!qt=%h^e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -166,7 +167,13 @@ MEDIA_UPLOAD_URL = MEDIA_URL + MEDIA_UPLOAD_DIR
 FULL_UPLOAD_DIR = os.path.join(BASE_DIR,MEDIA_ROOT,MEDIA_UPLOAD_DIR)
 
 DJANGO_LISTING = dict(
-    DROPZONE_PARAMS = dict(
+    DROPZONE_PARAMS=dict(
         acceptedFiles='image/jpeg',
+        timeout=300000,  # 5 minutes
+        resizeWidth=4032,
+        resizeHeight=4032,
+        resizeQuality=0.5,
+        maxThumbnailFilesize=40,
+        parallelUploads=1,
     )
 )

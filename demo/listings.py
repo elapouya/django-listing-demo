@@ -459,6 +459,7 @@ class UploadListing(DivListing):
     has_upload = True
     per_page = 8
     paginator_has_first_last = True
+    paginator_theme_button_text_class = 'd-none d-sm-inline' # hide paginator button text on small screen
     record_label = 'product image'
     div_template_name = 'demo/upload_thumbnails.html'
     attrs = {'class':''}
