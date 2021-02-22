@@ -128,15 +128,15 @@ class BoolColumnsListing(Listing):
 
 class BoolChoicesImgColumnsListing(Listing):
     select_columns = 'first_name,last_name,age,have_car,gender'
-    have_car__true_tpl = ( '<img src="{static_url}demo/images/car.png"'
+    have_car__true_tpl = ( '<img src="{STATIC_URL}demo/images/car.png"'
                            'title="Have a car">')
-    have_car__false_tpl = ('<img src="{static_url}demo/images/pedestrian.png" '
+    have_car__false_tpl = ('<img src="{STATIC_URL}demo/images/pedestrian.png" '
                            'title="Do not own a car">')
     have_car__theme_cell_class = 'text-center'
     gender__choices = (
-        ('Male', '<img src="{static_url}demo/images/male.png" '
+        ('Male', '<img src="{STATIC_URL}demo/images/male.png" '
                  'title="{value}">'),
-        ('Female', '<img src="{static_url}demo/images/female.png" '
+        ('Female', '<img src="{STATIC_URL}demo/images/female.png" '
                    'title="{value}">'),
     )
     gender__theme_cell_class = 'text-center'
