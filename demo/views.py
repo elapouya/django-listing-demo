@@ -5,8 +5,8 @@
 #
 
 from django.views.generic import TemplateView, DetailView
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext
 from django.contrib import messages
 
 from .data import *
@@ -314,7 +314,7 @@ class EditableListing2View(ListingView):
 
     def manage_listing_companies_listing_row_form_clean(self, form):
         if form.cleaned_data.get('name') == 'Twiyo':
-            raise ValidationError(ugettext(
+            raise ValidationError(gettext(
                 'Just to test the method '
                 '<tt>manage_listing_companies_listing_row_form_clean()</tt> '
                 ': do not use "Twiyo" in column "Name"'))
@@ -378,15 +378,15 @@ class SelectableListing1View(ListingView):
 
     def manage_listing_selected_rows(self, listing):
         selected = listing.get_selected_rows()
-        selected_str = ugettext(' and ').join(selected)
+        selected_str = gettext(' and ').join(selected)
         action_str = self.request.POST.get('action', '-')
         if not selected:
             messages.add_message(self.request, messages.INFO,
-                ugettext("You didn't select any row, action : {}"
+                gettext("You didn't select any row, action : {}"
                          .format(action_str)))
         else:
             messages.add_message(self.request, messages.INFO,
-                                 ugettext('You selected row {}, action : {}'
+                                 gettext('You selected row {}, action : {}'
                                           .format(selected_str, action_str)))
         # here the place to make a HttpRedirect if you want
 
@@ -428,15 +428,15 @@ class SelectableListing3View(ListingView):
 
     def manage_listing_selected_rows(self, listing):
         selected = listing.get_selected_rows()
-        selected_str = ugettext(' and ').join(selected)
+        selected_str = gettext(' and ').join(selected)
         action_str = self.request.POST.get('action', '-')
         if not selected:
             messages.add_message(self.request, messages.INFO,
-                ugettext("Listing {} : You didn't select any row, action : {}"
+                gettext("Listing {} : You didn't select any row, action : {}"
                          .format(listing.name,action_str)))
         else:
             messages.add_message(self.request, messages.INFO,
-                ugettext('Listing {} : You selected row {}, action : {}'
+                gettext('Listing {} : You selected row {}, action : {}'
                          .format(listing.name, selected_str, action_str)))
         # here the place to make a HttpRedirect if you want
 
@@ -492,12 +492,12 @@ class SelectableListing5View(ListingView):
         action_str = self.request.POST.get('action', '-')
         if not selected:
             messages.add_message(self.request, messages.INFO,
-                mark_safe(ugettext("Listing : \"{}\", action : {}, "
+                mark_safe(gettext("Listing : \"{}\", action : {}, "
                                    "You didn't select any row"
                                    .format(listing.name, action_str))))
         else:
             messages.add_message(self.request, messages.INFO,
-                mark_safe(ugettext('<b>Listing :</b> "{}", <b>action :</b> {}, '
+                mark_safe(gettext('<b>Listing :</b> "{}", <b>action :</b> {}, '
                                    '<b>rows :</b> {}'
                                    .format(listing.name,
                                            action_str,
