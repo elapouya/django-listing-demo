@@ -7,7 +7,6 @@ verify_ssl = true
 django = "*"
 django-extensions = "*"
 django-robohash-svg = "*"
-django-listing = "*"
 django-tables2 = "*"
 gunicorn = "*"
 whitenoise = "*"
@@ -19,3 +18,4 @@ python_version = "3"
 [dev-packages]
 django-modals = {path = "./../django-modals",editable = true}
 django-better-image = {path = "./../django-better-image",editable = true}
+django-listing = {editable = true, path = "./../django-listing"}
