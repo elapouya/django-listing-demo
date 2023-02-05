@@ -167,6 +167,7 @@ MEDIA_UPLOAD_URL = MEDIA_URL + MEDIA_UPLOAD_DIR
 FULL_UPLOAD_DIR = os.path.join(BASE_DIR,MEDIA_ROOT,MEDIA_UPLOAD_DIR)
 
 DJANGO_LISTING = dict(
+    THEME='bootstrap5',
     DROPZONE_PARAMS=dict(
         acceptedFiles='image/jpeg',
         timeout=300000,  # 5 minutes
