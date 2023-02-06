@@ -102,7 +102,7 @@ class EmployeeDivListing(DivListing):
     )
     per_page = 10
     div_template_name = 'demo/div_row.html'
-    attrs = {'class':'div-striped div-hover div-bordered'}
+    attrs = {'class': 'div-striped div-hover div-bordered'}
 
 
 class EmployeeThumbnailsListing(DivListing):
@@ -219,6 +219,32 @@ class TotalListing(Listing):
                  MaxColumn(),
                  MinColumn() ]
     paginator_hide_single_page = True  # for single page listings, better remove paginator.
+
+
+class ModalListing(Listing):
+    paginator_has_first_last = True
+    columns = Columns(
+        Column('first_name'),
+        Column('last_name'),
+        Column('address'),
+        ButtonColumn(
+            'button',
+            label='Select',
+            header='Click to select',
+            widget_attrs={'data-bs-dismiss': 'modal'},
+        ),
+    )
+    # One can specify a little jquery snippet to be executed
+    # when the document will be ready :
+    onready_snippet = """
+        $('body').on('click', '#listing4-id .col-button button', function() {
+            let employee = $(this).closest('tr').find('td.col-first_name ').text()
+            + ' ' + $(this).closest('tr').find('td.col-last_name ').text()
+            + ' (' + $(this).closest('tr').find('td.col-address ').text() + ')';
+            $('#employee-selected').val(employee);
+            $('#employee-selected-pk').val($(this).closest('tr').attr('data-pk'));
+        });
+    """
 
 
 class WidgetsColumnsListing(Listing):

@@ -29,4 +29,37 @@
 
     {% render_listing listing_with_toolbars_and_variations %}
 
+    <br>
+    <h3>This is useful in a modal popup :</h3>
+    <!-- Button trigger modal -->
+    <div class="text-center">
+        <div class="input-group">
+            <span class="input-group-text">Employee</span>
+            <input id="employee-selected" type="text" class="form-control" placeholder="Employee" aria-label="Employee" style="width: 537px;">
+            <span class="input-group-text">PK</span>
+            <input id="employee-selected-pk" type="text" class="form-control" placeholder="Should be hidden">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingInModal">
+              Listing in a modal...
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="listingInModal" tabindex="-1" aria-labelledby="listingInModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="listingInModalLabel">Listing in modal</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              {% render_listing listing4 %}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 {% endblock %}

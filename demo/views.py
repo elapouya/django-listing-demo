@@ -199,6 +199,12 @@ class AjaxListingView(ListingView):
     def get_listing_instance_listing_with_toolbars_and_variations(self):
         return ToolbarListing(Employee, accept_ajax=True)
 
+    def get_listing_instance_listing4(self):
+        return ModalListing(
+            Employee,
+            per_page=10,
+            accept_ajax=True
+        )
 
 class TranslationListingView(ListingView):
     template_name = 'demo/translation.html'
