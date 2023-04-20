@@ -279,3 +279,13 @@ table.object-popup td.section span {
     overflow: initial;
     padding-left: 4px;
 }
+
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(41, 167, 69, 0.25);
+    border-color: #29a745;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(41, 167, 69, 0.25);
+    border-color: #29a745;
+}
