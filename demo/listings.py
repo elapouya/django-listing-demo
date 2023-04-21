@@ -422,7 +422,6 @@ class ToolbarUpdateListing(Listing):
     exclude_columns = 'id,company,interests'
     editable = True
     editable_columns = 'all'
-    gender__input_type = 'radio'
 
 
 class NoToolbarListing(ListingVariations):

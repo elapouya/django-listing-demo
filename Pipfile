@@ -11,6 +11,9 @@ django-tables2 = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-imagekit = "*"
+openpyxl = "*"
+markuppy = "*"
+odfpy = "*"
 
 [requires]
 python_version = "3"
