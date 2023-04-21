@@ -192,7 +192,7 @@ form.listing-form {
 }
 
 .django-listing-editing td.col-marital_status select {
-    width:90px;
+    width:110px;
     padding-left: 2px;
     padding-right: 0;
 }
@@ -296,5 +296,5 @@ table.object-popup td.section span {
 }
 
 td.col-gender > div.form-field {
-    width: 75px;
+    width: 90px;
 }

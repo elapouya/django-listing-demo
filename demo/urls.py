@@ -12,7 +12,7 @@ from django.conf.urls.i18n import i18n_patterns
 from .views import *
 from django_robohash.views import robohash
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('', IndexView.as_view(),
          name='index'),
     path('admin/', admin.site.urls),
@@ -44,6 +44,8 @@ urlpatterns = [
          name='aggregation'),
     path('variations/', VariationsListingView.as_view(),
          name='variations'),
+    path(r'translation/', TranslationListingView.as_view(),
+         name='translation'),
     path('ajax/', AjaxListingView.as_view(),
          name='ajax'),
     path('toolbar/', ToolbarListingView.as_view(),
@@ -94,12 +96,7 @@ urlpatterns = [
          name='company_detail'),
     # from django-robohash-svg django app
     path('robohash/<string>/', robohash,
-         name='robohash')
-]
-
-urlpatterns += i18n_patterns(
-    path(r'translation/', TranslationListingView.as_view(),
-        name='translation'),
+         name='robohash'),
 )
 
 

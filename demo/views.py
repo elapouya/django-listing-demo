@@ -362,7 +362,7 @@ class EditableListing4View(ToolbarListingView):
             editable_columns='all',
             per_page=5,
             gender__input_type='radio',
-            save_to_database=True )
+            save_to_database=True)
 
 
 class SelectableListingIndexView(ListingView):
